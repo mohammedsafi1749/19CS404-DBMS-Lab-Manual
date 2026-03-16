@@ -104,13 +104,13 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
---
-<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/f42645be-ef64-4d9d-9b82-46e411b6a5b4" />
 
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/f42645be-ef64-4d9d-9b82-46e411b6a5b4" />
 
 ```
 ALTER TABLE Student_details
-ADD COLUMN Country TEXT```
+ADD COLUMN Country TEXT
+```
 
 **Output:**
 
@@ -118,7 +118,7 @@ ADD COLUMN Country TEXT```
 
 
 **Question 2**
----
+
 <img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/f8099d36-e74f-41bc-b472-bbf4492e0184" />
 
 
