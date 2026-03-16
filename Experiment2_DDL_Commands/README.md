@@ -314,8 +314,6 @@ add column Date_of_birth Date
 **Output:**
 
 <img width="1217" height="426" alt="image" src="https://github.com/user-attachments/assets/f0ab3968-70f8-4c69-b6d1-a3ad14b8d4e2" />
-**Output:**
-<img width="1902" height="1073" alt="Screenshot 2025-10-10 111804" src="https://github.com/user-attachments/assets/2e994fa4-84d6-46e2-9904-1913610f7274" />
 
 
 ## RESULT
