@@ -106,7 +106,11 @@ CREATE TABLE Table_Name (
 **Question 1**
 --
 <img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/f42645be-ef64-4d9d-9b82-46e411b6a5b4" />
+
+
 ```
+ALTER TABLE Student_details
+ADD COLUMN Country TEXT```
 
 **Output:**
 
@@ -115,20 +119,15 @@ CREATE TABLE Table_Name (
 
 **Question 2**
 ---
-Create a table named Employees with the following columns:
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/f8099d36-e74f-41bc-b472-bbf4492e0184" />
 
-EmployeeID as INTEGER
-FirstName as TEXT
-LastName as TEXT
-HireDate as DATE
 
-```sql
-Create table Employees
+```
+CREATE TABLE Events
 (
-EmployeeID INTEGER,
-FirstName TEXT,
-LastName TEXT,
-HireDate DATE
+    EventID INTEGER,
+    EventName TEXT,
+    EventDate DATE
 );
 ```
 
@@ -139,22 +138,12 @@ HireDate DATE
 
 **Question 3**
 ---
-Create a table named Invoices with the following constraints:
-InvoiceID as INTEGER should be the primary key.
-InvoiceDate as DATE.
-Amount as REAL should be greater than 0.
-DueDate as DATE should be greater than the InvoiceDate.
-OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/800a1f69-41c9-41d6-a153-f52eed89c7cb" />
 
-```sql
-Create table Invoices
-(
-InvoiceID INTEGER primary key,
-InvoiceDate DATE,
-Amount REAL check(Amount > 0),
-DueDate DATE check(DueDate > InvoiceDate),
-OrderID INTEGER,
-foreign key(OrderID) references Orders(OrderID));
+
+```
+ALTER TABLE Student_details
+ADD COLUMN email TEXT NOT NULL DEFAULT('Invalid')
 ```
 
 **Output:**
@@ -164,17 +153,12 @@ foreign key(OrderID) references Orders(OrderID));
 
 **Question 4**
 ---
-In the Cusomers table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/b78f7a87-6f5e-4fd3-a143-525e8110c0a2" />
 
-CustomerID  Name          Address      City        ZipCode
-----------  ------------  ----------   ----------  ----------
-306         Diana Prince  Themyscira
-307         Bruce Wayne   Wayne Manor  Gotham      10007
-308         Peter Parker  Queens                   11375
 
-```sql
-insert into Customers(CustomerID,Name,Address,City,ZipCode)values(306,"Diana Prince","Themyscira",NULL,NULL),(307,"Bruce Wayne","Wayne Mano","Gotham",10007),(308,"Peter Parker","Queens",NULL,11375)
-
+```
+INSERT INTO Products(ProductID,Name,Category)
+VALUES(104,"Tablet","Electronics")
 ```
 
 **Output:**
@@ -184,23 +168,12 @@ insert into Customers(CustomerID,Name,Address,City,ZipCode)values(306,"Diana Pri
 
 **Question 5**
 ---
-Create a new table named item with the following specifications and constraints:
-item_id as TEXT and as primary key.
-item_desc as TEXT.
-rate as INTEGER.
-icom_id as TEXT with a length of 4.
-icom_id is a foreign key referencing com_id in the company table.
-The foreign key should set NULL on updates and deletes.
-item_desc and rate should not accept NULL.
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/b9c0daa5-c2a9-4f6d-87f5-8ef49121d8ed" />
 
-```sql
-Create table item
-(
-item_id TEXT primary key,
-item_desc TEXT not NULL,
-rate INTEGER not NULL,
-icom_id TEXT check(length(icom_id = 4)),
-foreign key(icom_id) references company(com_id)ON UPDATE SET NULL ON DELETE SET NULL);
+
+```
+INSERT INTO Employee(EmployeeID,Name,Position)
+VALUES(4,"Emily White","Analyst")
 ```
 
 **Output:**
@@ -210,21 +183,18 @@ foreign key(icom_id) references company(com_id)ON UPDATE SET NULL ON DELETE SET 
 
 **Question 6**
 ---
-Create a table named Shipments with the following constraints:
-ShipmentID as INTEGER should be the primary key.
-ShipmentDate as DATE.
-SupplierID as INTEGER should be a foreign key referencing Suppliers(SupplierID).
-OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/84c7e9e7-bd47-4349-bcbe-97abcfab53bd" />
 
-```sql
-Create table Shipments
+
+```
+CREATE TABLE products
 (
-ShipmentID INTEGER primary key,
-ShipmentDate DATE,
-SupplierID INTEGER,
-OrderID INTEGER,
-foreign key(SupplierID) references Suppliers(SupplierID),
-foreign key(OrderID) references Orders(OrderID));
+    product_id INTEGER PRIMARY KEY,
+    product_name TEXT NOT NULL,
+    list_price DECIMAL(10,2) NOT NULL,
+    discount DECIMAL(10,2) NOT NULL DEFAULT 0,
+    CHECK(list_price>=discount AND discount>=0 AND list_price>=0)
+);
 ```
 
 **Output:**
@@ -235,22 +205,16 @@ foreign key(OrderID) references Orders(OrderID));
 
 **Question 7**
 ---
-Create a table named Bonuses with the following constraints:
-BonusID as INTEGER should be the primary key.
-EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
-BonusAmount as REAL should be greater than 0.
-BonusDate as DATE.
-Reason as TEXT should not be NULL.
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/2cd93ed5-59ba-47e2-a222-31e282163f91" />
 
-```sql
-Create table Bonuses
+
+```
+CREATE TABLE Department
 (
-BonusID INTEGER primary key,
-EmployeeID INTEGER,
-BonusAmount REAL check(BonusAmount > 0),
-BonusDate Date,
-Reason TEXT not NULL,
-foreign key(EmployeeID) references Employees(EmployeeID));
+    DepartmentID INTEGER PRIMARY KEY,
+    DepartmentName TEXT UNIQUE NOT NULL,
+    Location TEXT
+);
 ```
 
 **Output:**
@@ -260,14 +224,19 @@ foreign key(EmployeeID) references Employees(EmployeeID));
 
 **Question 8**
 ---
-Insert all employees from Former_employees into Employee
-
-Table attributes are EmployeeID, Name, Department, Salary
+<img width="1850" height="372" alt="image" src="https://github.com/user-attachments/assets/ef12ab40-a395-4717-a82f-524845307e45" />
 
 
-
-```sql
-insert into Employee(EmployeeID,Name,Department,Salary) select EmployeeID,Name,Department,Salary from Former_employees
+```
+CREATE TABLE Bonuses
+(
+    BonusID INTEGER PRIMARY KEY,
+    EmployeeID INTEGER,
+    BonusAmount REAL CHECK(BonusAmount>0),
+    BonusDate DATE,
+    Reason TEXT NOT NULL,
+    FOREIGN KEY (EMployeeID) REFERENCES Employees(EmployeeID)
+);
 ```
 
 **Output:**
@@ -277,20 +246,12 @@ insert into Employee(EmployeeID,Name,Department,Salary) select EmployeeID,Name,D
 
 **Question 9**
 ---
-Create a table named Invoices with the following constraints:
+<img width="1063" height="460" alt="image" src="https://github.com/user-attachments/assets/0a957a48-3827-4786-b346-9f317095b78e" />
 
-InvoiceID as INTEGER should be the primary key.
-InvoiceDate as DATE.
-DueDate as DATE should be greater than the InvoiceDate.
-Amount as REAL should be greater than 0.
 
-```sql
-Create table Invoices
-(
-InvoiceID INTEGER primary key,
-InvoiceDate DATE,
-DueDate DATE check(DueDate > InvoiceDate),
-Amount REAL check(Amount > 0));
+```
+INSERT INTO Student_details(RollNo,Name,Gender)
+VALUES(204,"Samuel Black","M")
 ```
 
 **Output:**
@@ -300,11 +261,17 @@ Amount REAL check(Amount > 0));
 
 **Question 10**
 ---
-Write a SQL query to add a column named Date_of_birth as Date in the Student_details table.
+<img width="927" height="427" alt="image" src="https://github.com/user-attachments/assets/4f65bec8-1a84-4213-9e5e-d7593f8762bb" />
 
-```sql
-ALTER TABLE Student_details
-add column Date_of_birth Date
+
+```
+CREATE TABLE Employees
+(
+    EmployeeID INTEGER,
+    FirstName TEXT,
+    LastName TEXT,
+    HireDate DATE
+);
 ```
 
 **Output:**
