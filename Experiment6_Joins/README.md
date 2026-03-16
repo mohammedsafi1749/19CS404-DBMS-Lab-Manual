@@ -54,123 +54,188 @@ ON table1.column = table2.column;
 
 **Question 1**
 --
--- Paste Question 1 here
+<img width="826" height="611" alt="image" src="https://github.com/user-attachments/assets/b43f7f67-8825-4690-90fe-820aa7793eab" />
 
-```sql
--- Paste your SQL code below for Question 1
+
+```
+SELECT n.*
+FROM nurses n
+INNER JOIN departments d
+ON n.department_id=d.department_id
+WHERE d.department_name="Pediatrics"
+
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="826" height="424" alt="image" src="https://github.com/user-attachments/assets/c3d2abfc-4219-4ecf-a14a-67bc54e3fd49" />
 
 **Question 2**
 ---
--- Paste Question 2 here
+<img width="826" height="928" alt="image" src="https://github.com/user-attachments/assets/d9c6182f-891e-4a5e-883d-955ab00ca17e" />
 
-```sql
--- Paste your SQL code below for Question 2
+```
+SELECT
+    s.name AS Salesman,
+    c.cust_name,
+    c.city
+FROM salesman s
+JOIN customer c
+ON s.city=c.city
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="826" height="658" alt="image" src="https://github.com/user-attachments/assets/6cacddbe-aaab-4699-be49-095267b164fe" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+<img width="826" height="985" alt="image" src="https://github.com/user-attachments/assets/5ef044f3-4d2e-48ef-8f49-87dfc5447a5e" />
 
-```sql
--- Paste your SQL code below for Question 3
+```
+SELECT
+    c.cust_name,
+    c.city,
+    o.ord_no,
+    o.ord_date,
+    o.purch_amt AS "Order Amount",
+    s.name,
+    s.commission
+FROM customer c
+LEFT OUTER JOIN orders o ON c.customer_id=o.customer_id
+LEFT OUTER JOIN salesman s ON c.salesman_id=s.salesman_id
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="826" height="1021" alt="image" src="https://github.com/user-attachments/assets/2a70eb9f-1598-4f45-943d-4a19a696bb0a" />
 
 **Question 4**
 ---
--- Paste Question 4 here
+<img width="826" height="794" alt="image" src="https://github.com/user-attachments/assets/4c369e9d-59f8-435d-9f0d-73d84470ff52" />
 
-```sql
--- Paste your SQL code below for Question 4
+```
+SELECT 
+    p.admission_date,
+    s.surgery_date
+FROM patients p
+INNER JOIN surgeries s
+ON p.patient_id=s.patient_id
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="826" height="635" alt="image" src="https://github.com/user-attachments/assets/b1cabd79-30ef-4a9b-83d9-8488ef0b4c90" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+<img width="826" height="977" alt="image" src="https://github.com/user-attachments/assets/c8134087-7f1e-47da-8742-244248dd9f2d" />
 
-```sql
--- Paste your SQL code below for Question 5
+
+```
+SELECT
+    c.cust_name,
+    c.city,
+    o.ord_no,
+    o.ord_date,
+    o.purch_amt AS "Order Amount"
+FROM customer c
+LEFT OUTER JOIN orders o
+ON c.customer_id=o.customer_id
+ORDER BY o.ord_date
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="826" height="951" alt="image" src="https://github.com/user-attachments/assets/02b0519e-e877-43ae-907a-543b93cb76bc" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+<img width="826" height="655" alt="image" src="https://github.com/user-attachments/assets/d3fa6e7e-76c6-43df-82a6-0eb1b3c6bdb5" />
 
-```sql
--- Paste your SQL code below for Question 6
+```
+SELECT p.*,d.specialization AS "doctor_specialization"
+FROM patients p
+INNER JOIN doctors d
+ON p.doctor_id=d.doctor_id
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="826" height="354" alt="image" src="https://github.com/user-attachments/assets/5456054e-3582-447f-98e2-0e984610872c" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+<img width="826" height="422" alt="image" src="https://github.com/user-attachments/assets/73457f6b-76e1-4520-bca9-29e233c9bc12" />
 
-```sql
--- Paste your SQL code below for Question 7
+```
+SELECT p.*
+FROM patients p
+INNER JOIN test_results t
+ON p.patient_id=t.patient_id
+WHERE test_date BETWEEN '2024-03-01' AND '2024-03-31'
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="826" height="285" alt="image" src="https://github.com/user-attachments/assets/5735b72f-3284-4a7b-abf7-1c95a7674fbd" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+<img width="826" height="686" alt="image" src="https://github.com/user-attachments/assets/a9d589e0-10b3-4db1-99f4-8fdf99c8502f" />
 
-```sql
--- Paste your SQL code below for Question 8
+```
+SELECT
+    c.cust_name AS "Customer Name",
+    c.city,
+    s.name AS Salesman,
+    s.city,
+    s.commission
+FROM customer c
+JOIN salesman s
+ON c.salesman_id=s.salesman_id
+WHERE s.city<>c.city AND s.commission>0.12
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="826" height="628" alt="image" src="https://github.com/user-attachments/assets/6d681851-8bfd-4aa5-9beb-9effc20edb4a" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+<img width="826" height="469" alt="image" src="https://github.com/user-attachments/assets/2fa4c6d4-b0c3-414c-b11f-309e55dbfcff" />
 
-```sql
--- Paste your SQL code below for Question 9
+```
+SELECT
+    c.cust_name,
+    s.name
+FROM customer c
+LEFT JOIN salesman s
+ON c.salesman_id=s.salesman_id
+WHERE c.city=s.city
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="826" height="571" alt="image" src="https://github.com/user-attachments/assets/dfc8a464-8e5a-40a8-a24a-abe455137c33" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+<img width="826" height="729" alt="image" src="https://github.com/user-attachments/assets/6ecf27f1-523b-40aa-b154-b1a258fab9d2" />
 
-```sql
--- Paste your SQL code below for Question 10
+```
+SELECT 
+    c.cust_name,
+    s.commission
+FROM customer c
+LEFT JOIN salesman s
+ON c.salesman_id=s.salesman_id
 ```
 
 **Output:**
 
-![Output10](output.png)
+[](url)<img width="826" height="875" alt="image" src="https://github.com/user-attachments/assets/1b1b8ae3-f660-4a22-863d-ef1331c311a2" />
 
 
 ## RESULT
