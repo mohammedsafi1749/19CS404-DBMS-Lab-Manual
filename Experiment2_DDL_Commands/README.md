@@ -105,11 +105,7 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
-Insert a record with EmployeeID 001, Name Sarah Parker, Position Manager, Department HR, and Salary 60000 into the Employee table.
-
-
-```sql
-insert into Employee(EmployeeID,Name,Position,Department,Salary)values(001,"Sarah Parker","Manager","HR",60000)
+<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/f42645be-ef64-4d9d-9b82-46e411b6a5b4" />
 ```
 
 **Output:**
